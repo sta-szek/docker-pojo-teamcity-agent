@@ -1,0 +1,14 @@
+version: '2.1'
+services:
+
+  teamcity-agent:
+    image: pojo/docker-pojo-teamcity-agent:latest
+    container_name: teamcity-agent
+    environment:
+      - "SERVER_URL=teamcity"
+    volumes:
+      - ./teamcity-agent/conf:/data/teamcity_agent/conf:rw
+    restart: always
+    cpu_shares: 75
+    mem_limit: 1g
+    memswap_limit: 1g
